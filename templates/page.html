@@ -25,7 +25,7 @@
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Register</a>
+                    <a class="nav-link" href="/">About</a>
                 </li>
             </ul>
         </div>
@@ -37,11 +37,25 @@
         <div class="container my-2">
             <div class="col uploadform">
                 <h3>Upload</h3>
-                <form action="" method=post enctype=multipart/form-data> <input type=file name=uploadfile>
-                    <input type=submit value=Upload>
+                <form action="/prediction" method=post enctype=multipart/form-data> 
+                    <input type=file name=uploadfile>
+                    <button type=submit> Predict
+                    </button>
                 </form>
-
             </div>
+
+            {% if message %}
+            <p>{{message}}</p>
+            
+            {% if img_path != '.' %}  
+            <div class="container col">
+                <img src={{img_path}} style='height:300px'>
+            </div>
+            {% endif %}
+
+            {% endif %}
+
+
         </div>
     </div>
 
